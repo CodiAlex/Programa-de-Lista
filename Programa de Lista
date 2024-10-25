@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+#  Lista das palavras
+
+Lista_de_palavras=$(cat Lista27)
+
+# Escolher palavra 
+
+Escolha=$(zenity --list --column=Drivers $Lista_de_palavras --text="Drivers de impressora" --hide-header)
+
+# Executar comando de acordo com a palavra.
+
+$(grep $Escolha Comandos.txt | awk -F":" '{print $2}')
